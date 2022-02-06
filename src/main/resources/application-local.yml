@@ -1,0 +1,48 @@
+--- #local
+spring:
+  config:
+    activate:
+      on-profile: local
+
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://localhost:3306/batch
+    username: root
+    password: root1234
+    hikari:
+      poolName: Hikari
+      maximum-pool-size: 10
+      max-lifetime: 1800000
+      auto-commit: false
+      data-source-properties:
+        cachePrepStmts: true
+        prepStmtCacheSize: 250
+        prepStmtCacheSqlLimit: 2048
+        useServerPrepStmts: true
+
+  batch:
+    jdbc:
+      initialize-schema: always
+    job:
+      names: ${jobconfig.name:createArticleJob}
+      enabled: true #디폴트가 아닌경우 false 인경우 => web, 또는 스케쥴링 적용 했을 경우 false
+
+
+logging:
+  level:
+    org.springframework.web: info
+    site.heeseong.batch: info
+    org.hibernate.type: info
+    #org.hibernate.SQL: debug
+    org.hibernate.type.descriptor.sql: debug
+
+  file:
+    name: D:${file.separator}logs${file.separator}system${file.separator}system.log
+  logback:
+    rollingpolicy:
+      max-history: 7
+      max-file-size: 10MB
+
+path:
+  web-access-path: /upload/**
+  default-upload-path: D:/upload/system

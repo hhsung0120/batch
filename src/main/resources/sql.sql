@@ -1,0 +1,32 @@
+DROP TABLE batch_job_execution;
+DROP TABLE batch_job_execution_context;
+DROP TABLE batch_job_execution_params;
+DROP TABLE batch_job_execution_seq;
+DROP TABLE batch_job_instance;
+DROP TABLE batch_job_seq;
+DROP TABLE batch_step_execution;
+DROP TABLE batch_step_execution_context;
+DROP TABLE batch_step_execution_seq;
+DROP TABLE articleModel;
+
+//너무 빨리 삭제 되어서 fk 제약에 걸리게 되므로 걍 2번 날림
+delete from batch_job_seq;
+delete from batch_step_execution;
+delete from batch_job_execution;
+delete from batch_job_instance;
+delete from batch_job_execution_context;
+delete from batch_job_execution_params;
+delete from batch_job_execution_seq;
+delete from batch_step_execution_context;
+delete from batch_step_execution_seq;
+delete from article;
+delete from batch_job_seq;
+delete from batch_step_execution;
+delete from batch_job_execution;
+delete from batch_job_instance;
+delete from batch_job_execution_context;
+delete from batch_job_execution_params;
+delete from batch_job_execution_seq;
+delete from batch_step_execution_context;
+delete from batch_step_execution_seq;
+delete from article;

@@ -1,0 +1,44 @@
+server:
+  port: 58080
+
+spring:
+  profiles:
+    active: local
+
+  devtools:
+    livereload:
+      enabled: true
+
+  thymeleaf:
+    cache: false
+    enabled: true
+    encoding: UTF-8
+    suffix: .html
+    prefix: classpath:/templates
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    open-in-view: true
+    generate-ddl: false
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        #format_sql: true
+
+  #  sql:
+  #    init:
+  #      mode: always
+  #      encoding: UTF-8
+  #      schema-locations: classpath:sql/init.sql
+  #      data-locations: classpath:sql/data.sql
+
+  #DB configuration
+  mybatis:
+    configuration:
+      map-underscore-to-camel-case: true
+    mapper-locations:
+      - mapper/*.xml
+    type-aliases-package: io.system.heeseong.*
+
