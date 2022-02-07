@@ -24,9 +24,8 @@ spring:
     jdbc:
       initialize-schema: always
     job:
-      names: ${jobconfig.name:createArticleJob}
+      names: ${job.name:NONE}
       enabled: true #디폴트가 아닌경우 false 인경우 => web, 또는 스케쥴링 적용 했을 경우 false
-
 
 logging:
   level:
@@ -35,14 +34,3 @@ logging:
     org.hibernate.type: info
     #org.hibernate.SQL: debug
     org.hibernate.type.descriptor.sql: debug
-
-  file:
-    name: D:${file.separator}logs${file.separator}system${file.separator}system.log
-  logback:
-    rollingpolicy:
-      max-history: 7
-      max-file-size: 10MB
-
-path:
-  web-access-path: /upload/**
-  default-upload-path: D:/upload/system

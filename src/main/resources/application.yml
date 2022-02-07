@@ -26,19 +26,3 @@ spring:
     properties:
       hibernate:
         #format_sql: true
-
-  #  sql:
-  #    init:
-  #      mode: always
-  #      encoding: UTF-8
-  #      schema-locations: classpath:sql/init.sql
-  #      data-locations: classpath:sql/data.sql
-
-  #DB configuration
-  mybatis:
-    configuration:
-      map-underscore-to-camel-case: true
-    mapper-locations:
-      - mapper/*.xml
-    type-aliases-package: io.system.heeseong.*
-
